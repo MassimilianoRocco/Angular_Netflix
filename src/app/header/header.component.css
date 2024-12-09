@@ -1,0 +1,96 @@
+header {
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #090909;
+    color: #ebe9e9;
+    position: relative;
+
+    .left_H_section {
+        width: 70%;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 60px;
+        }
+
+        span {
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        span:hover {
+            color: #B2B2B2;
+        }
+
+        span:first-of-type {
+            margin-right: 1.5rem;
+        }
+
+    }
+
+    .right_H_section {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        position: relative; /* Aggiunto per il dropdown */
+
+        img {
+            height: 40px;
+        }
+
+        span {
+            margin: 0 0.5rem;
+            cursor: pointer;
+        }
+
+
+
+        .profile-icon {
+            position: relative;
+        }
+        
+        .dropdown {
+            display: none;
+            width: 250px;
+            height: 300px;
+            padding: 5px 15px;
+            position: absolute;
+            top: 140%; /* Sposta il dropdown più in basso */
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);  /* se metto opacity al posto dell'rgba si scuriscono pure gli elementi all'interno */
+            color: #ebe9e9;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+
+            overflow: auto;
+        }
+        
+        .profile-icon::after {
+            content: '';           /* Crea un elemento pseudo vuoto */
+            position: absolute;    /* Posizionamento assoluto rispetto al genitore */
+            top: 100%;             /* Inizia esattamente sotto l'elemento */
+            left: 0;               /* Si estende da sinistra */
+            right: 0;              /* Si estende a destra */
+            height: 20px;          /* Altezza di 20 pixel */
+            width: 100px;
+        }
+        
+        .profile-icon:hover::after,
+        .profile-icon::after:hover {
+            .dropdown {
+                display: block;
+            }
+        }
+        
+        .profile-icon:hover .dropdown,
+        .dropdown:hover {
+            display: block;
+        }
+    }
+}

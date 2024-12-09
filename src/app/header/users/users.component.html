@@ -1,0 +1,12 @@
+@for(user of allUsers; track user.id){
+<div class="users_container">
+  <img [src]="getImagePath(user.id)" [alt]="'avatar di:' + user.name" />
+  <p>{{ user.name }}</p>
+</div>
+}
+
+<p class="firstInfoP"><i class="fa-solid fa-pencil"></i>Gestisci Profili</p>
+<p class="infoP"><i class="fa-solid fa-user"></i>Account</p>
+<p class="infoP"><i class="fa-solid fa-circle-info"></i>Centro Assistenza</p>
+<hr />
+<p class="infoP" style="text-align: center;">Esci da Netflix</p>

@@ -1,0 +1,24 @@
+.users_container{
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+
+    img{
+        height: 60px; 
+        aspect-ratio: 1;
+        border-radius: 5px;
+    }
+    p{
+        margin-left: 0.5rem;
+    }
+}
+
+.infoP{
+    margin: 0.5rem 0;
+}
+.firstInfoP{
+    margin-top: 2rem;
+}
+i{
+    margin-right: 0.5rem;
+}
