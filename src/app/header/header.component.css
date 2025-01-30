@@ -75,8 +75,7 @@ header {
             content: '';           /* Crea un elemento pseudo vuoto */
             position: absolute;    /* Posizionamento assoluto rispetto al genitore */
             top: 100%;             /* Inizia esattamente sotto l'elemento */
-            left: 0;               /* Si estende da sinistra */
-            right: 0;              /* Si estende a destra */
+            right: 20%;              /* Si estende a destra */
             height: 20px;          /* Altezza di 20 pixel */
             width: 100px;
         }
