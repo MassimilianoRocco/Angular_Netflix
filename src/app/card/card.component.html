@@ -1,1 +1,9 @@
-<p>card works!</p>
+<div class="card">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie()?.poster_path" [alt]="movie()?.title">
+    <div class="infoBox">
+        <p class="title">Titolo: <span>{{ movie()?.title }}</span></p>
+        <p class="year">Anno: <span>{{ movie()?.release_date }}</span></p>
+        <p class="rating">Rating: <span>{{ movie()?.vote_average }} stelle</span></p>
+        <p class="description">Descrizione: <span>{{ movie()?.overview }}</span></p>
+    </div>
+</div>

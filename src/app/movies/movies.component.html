@@ -1,8 +1,10 @@
 <div class="moviesContainer">
 
+
+
     @for (movie of movies(); track movie ){
 
-        <div class="card">
+    <!-- <div class="card">
             <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title">
             <div class="infoBox">
                 <p class="title">Titolo: <span>{{ movie.title }}</span></p>
@@ -10,7 +12,8 @@
                 <p class="rating">Rating: <span>{{ movie.vote_average }} stelle</span></p>
                 <p class="description">Descrizione: <span>{{ movie.overview }}</span></p>
             </div>
-        </div>
-    }
+        </div> -->
 
+    <app-card [movie]="movie"></app-card>
+    }
 </div>
