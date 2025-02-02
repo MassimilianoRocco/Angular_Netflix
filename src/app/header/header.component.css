@@ -89,7 +89,7 @@ header {
             top: 140%;
             /* Sposta il dropdown più in basso */
             right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #090909;
             /* se metto opacity al posto dell'rgba si scuriscono pure gli elementi all'interno */
             color: #ebe9e9;
             border: 1px solid #ccc;
