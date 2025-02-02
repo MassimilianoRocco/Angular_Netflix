@@ -8,7 +8,7 @@ header {
     position: relative;
 
     .left_H_section {
-        width: 70%;
+        width: 60%;
         display: flex;
         align-items: center;
 
@@ -33,11 +33,12 @@ header {
     }
 
     .right_H_section {
-        width: 30%;
+        width: 40%;
         display: flex;
         align-items: center;
         justify-content: end;
-        position: relative; /* Aggiunto per il dropdown */
+        position: relative;
+        /* Aggiunto per il dropdown */
 
         img {
             height: 40px;
@@ -48,21 +49,48 @@ header {
             cursor: pointer;
         }
 
+        .search_box {
+            position: relative;
+
+            i {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                z-index: 1;
+                color: grey;
+            }
+
+            input {
+                border-radius: 10px;
+                padding: 0.5rem 2rem;
+                margin-right: 1rem;
+                width: 150px;
+            }
+
+            input[type=text]:focus {
+                width: 300px;
+                transition: width 0.4s ease-in-out;
+            }
+        }
+
 
 
         .profile-icon {
             position: relative;
         }
-        
+
         .dropdown {
             display: none;
             width: 250px;
             height: 300px;
             padding: 5px 15px;
             position: absolute;
-            top: 140%; /* Sposta il dropdown più in basso */
+            top: 140%;
+            /* Sposta il dropdown più in basso */
             right: 0;
-            background-color: rgba(0, 0, 0, 0.7);  /* se metto opacity al posto dell'rgba si scuriscono pure gli elementi all'interno */
+            background-color: rgba(0, 0, 0, 0.7);
+            /* se metto opacity al posto dell'rgba si scuriscono pure gli elementi all'interno */
             color: #ebe9e9;
             border: 1px solid #ccc;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -70,26 +98,32 @@ header {
 
             overflow: auto;
         }
-        
+
         .profile-icon::after {
-            content: '';           /* Crea un elemento pseudo vuoto */
-            position: absolute;    /* Posizionamento assoluto rispetto al genitore */
-            top: 100%;             /* Inizia esattamente sotto l'elemento */
-            right: 20%;              /* Si estende a destra */
-            height: 20px;          /* Altezza di 20 pixel */
+            content: '';
+            /* Crea un elemento pseudo vuoto */
+            position: absolute;
+            /* Posizionamento assoluto rispetto al genitore */
+            top: 100%;
+            /* Inizia esattamente sotto l'elemento */
+            right: 20%;
+            /* Si estende a destra */
+            height: 20px;
+            /* Altezza di 20 pixel */
             width: 100px;
         }
-        
+
         .profile-icon:hover::after,
         .profile-icon::after:hover {
             .dropdown {
                 display: block;
             }
         }
-        
+
         .profile-icon:hover .dropdown,
         .dropdown:hover {
             display: block;
         }
+
     }
 }

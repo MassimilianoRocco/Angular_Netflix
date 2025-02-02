@@ -1,16 +1,21 @@
 <header>
     <div class="left_H_section">
         <span class="hLogo"><img src="assets/netflixLogo.png" alt="Netflix logo" /></span>
-        <span>Home</span>
-        <span>Serie Tv</span>
-        <span>Film</span>
+        <span (click)="onMoviesClicked()">Home</span>
+        <span (click)="onTvShowClicked()">Serie Tv</span>
+        <span (click)="onMoviesClicked()">Film</span>
         <span>Nuovi e popolari</span>
         <span>La mia lista</span>
         <span>Sfoglia per lingua</span>
     </div>
 
     <div class="right_H_section">
-        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <div class="search_box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="searchInput" id="searchInput" placeholder="Search..." [(ngModel)] = "enteredSearchValue" (input)="onSearch()">
+        </div>
+        
+
         <span>Bambini</span>
         <span><i class="fa-regular fa-bell"></i></span>
         <!-- <span><img src="assets/jinx.jpg" alt="jinx image" /></span> -->
