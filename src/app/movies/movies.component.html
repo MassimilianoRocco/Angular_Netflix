@@ -1,9 +1,28 @@
-<div class="moviesContainer">
+@if(movies().length<1){
+    <app-loader></app-loader>
+}
 
+@else {
+    <div class="moviesContainer">
 
+        @for (movie of movies(); track movie ){
+            <!-- fixare il track poco efficiente -->
 
-    @for (movie of movies(); track movie ){
+        <app-card [movie]="movie"></app-card>
+        }
 
-    <app-card [movie]="movie"></app-card>
+    </div>
+
+    @if(pagVisibility()){
+        <div class="pagination_Container">
+            <div class="pagination_Box">
+                <div class="prev"(click)="prevPage()">Prev</div>
+                <div class="number_page">{{pageNumber()}}</div>
+                <div class="next" (click)="nextPage()">Next</div>
+            </div>
+        </div>
     }
-</div>
+    @else {
+
+    }
+    }

@@ -24,6 +24,10 @@ export class HeaderComponent {
   // METODI PER CHIAMATE
 
   onTvShowClicked() {
+    this.moviesService.moviesSelected = false;
+    this.moviesService.tvShowSelected = true;
+    this.moviesService.pageNumber.set(1);
+
     console.log('clicked tv show')
     const subscription = this.moviesService.loadTvSeries().subscribe({
       next: (data) => {
@@ -41,6 +45,10 @@ export class HeaderComponent {
   }
 
   onMoviesClicked() {
+    this.moviesService.tvShowSelected = false;
+    this.moviesService.moviesSelected = true;
+    this.moviesService.pageNumber.set(1);
+
     console.log('clicked tv show')
     const subscription = this.moviesService.loadPopularMovies().subscribe({
       next: (data) => {
@@ -60,10 +68,11 @@ export class HeaderComponent {
   onSearch() {
 
     if(this.enteredSearchValue() === ''){
+      this.moviesService.paginationVisible.set(true);
       this.onMoviesClicked();
     }
     else{
-
+      this.moviesService.paginationVisible.set(false);
       const subscription = this.moviesService.loadOnSearch(this.enteredSearchValue()).subscribe({
         next: (data) => {
           this.moviesService.list.set(data);

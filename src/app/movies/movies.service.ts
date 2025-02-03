@@ -11,22 +11,33 @@ export class MoviesService {
 
     list = signal<any[]>([]);
 
-    moviesRendered = false;
-    tvShowClicked = false;
+    paginationVisible = signal<boolean>(true);
+
+    pageNumber = signal<number>(1);
+
+    moviesSelected = false;
+    tvShowSelected = false;
 
 
 
 
     loadPopularMovies() {
-        return this.fetchMovies('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', 'Qualcosa è andato storto con la richiesta dei Film. Riprova più tardi')
+        return this.fetchMovies('https://api.themoviedb.org/3/movie/popular?language=en-US&page='+this.pageNumber(), 'Qualcosa è andato storto con la richiesta dei Film. Riprova più tardi')
     }
 
     loadTvSeries(){
-        return this.fetchMovies('https://api.themoviedb.org/3/discover/tv', 'Qualcosa è andato storto con la richiesta delle Serie Tv. Riprova più tardi')
+        return this.fetchMovies('https://api.themoviedb.org/3/discover/tv?page='+this.pageNumber(), 'Qualcosa è andato storto con la richiesta delle Serie Tv. Riprova più tardi')
     }
 
     loadOnSearch(value:string){
         return this.fetchMovies('https://api.themoviedb.org/3/search/movie?query=' + value, 'Qualcosa è andato storto con la ricerca. Riprova più tardi')
+    }
+
+    nextPage(){
+        this.pageNumber.set(this.pageNumber()+1);
+      }
+    prevPage(){
+        this.pageNumber.set(this.pageNumber()-1);
     }
 
 

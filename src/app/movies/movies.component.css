@@ -4,3 +4,28 @@
     flex-wrap: wrap;
     padding: 0.5rem;
 }
+
+.pagination_Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(54, 54, 52);
+
+    .pagination_Box{
+        width: 200px;
+        padding: 0.5rem;
+        display: flex;
+
+        div{
+            width: calc(100% / 3);
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
+
+        .prev, .next{
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+    }
+}
