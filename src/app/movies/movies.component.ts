@@ -15,65 +15,66 @@ export class MoviesComponent implements OnInit {
 
 
   private moviesService = inject(MoviesService);
-  private destroyRef = inject (DestroyRef);
+  private destroyRef = inject(DestroyRef);
 
   movies = this.moviesService.list
   pageNumber = this.moviesService.pageNumber;
 
   pagVisibility = this.moviesService.paginationVisible;
-  
+
 
   // ONINIT
   ngOnInit() {
-    // setTimeout(() => {
-    this.moviesCall();
-    // }, 4000);
+    setTimeout(() => {
+      this.moviesService.paginationVisible.set(true);
+      this.moviesCall();
+    }, 4000);
 
   }
 
 
-  nextPage(){
+  nextPage() {
     this.moviesService.nextPage();
-    if(this.moviesService.moviesSelected){
+    if (this.moviesService.moviesSelected) {
       this.moviesCall();
     }
-    else{
+    else {
       this.tvShowCall();
     }
   }
-  prevPage(){
+  prevPage() {
     this.moviesService.prevPage();
-    if(this.moviesService.moviesSelected){
+    if (this.moviesService.moviesSelected) {
       this.moviesCall();
     }
-    else{
+    else {
       this.tvShowCall();
     }
   }
 
 
 
-  moviesCall(){
+  moviesCall() {
     this.moviesService.tvShowSelected = false;
-      this.moviesService.moviesSelected = true;
+    this.moviesService.moviesSelected = true;
 
-      console.log('ENTRATO')
-      const subscription = this.moviesService.loadPopularMovies().subscribe({
-        next: (data) => {
-          console.log(data)
-          this.moviesService.list.set(data)
-        },
-        error: (error) => {
-          console.error('Error:', error);
-        }
-      });
-  
-      this.destroyRef.onDestroy(()=>{
-        subscription.unsubscribe();
-      })
+    console.log('ENTRATO')
+    const subscription = this.moviesService.loadPopularMovies().subscribe({
+      next: (data) => {
+        console.log(data)
+        this.moviesService.list.set(data)
+      },
+      error: (error) => {
+        console.error('Error:', error);
+      }
+    });
+
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    })
   }
 
-  tvShowCall(){
+  tvShowCall() {
     this.moviesService.moviesSelected = false;
     this.moviesService.tvShowSelected = true;
 
